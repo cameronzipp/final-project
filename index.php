@@ -18,5 +18,11 @@ $f3->route('GET /', FUNCTION(){
     echo $view->render('views/home.html');
 });
 
+//prepare route for errors
+$f3->set('ONERROR', function() {
+    $view = new Template();
+    echo $view->render('views/error.html');
+});
+
 //run fat-free
 $f3->run();
