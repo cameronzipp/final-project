@@ -1,0 +1,17 @@
+{
+  "name": "czipp/328/final-project",
+  "authors": [
+    {
+      "name": "Cameron Zipp",
+      "email": "czipp@mail.greenriver.edu"
+    },
+    {
+      "name": "Hunter Ahlquist",
+      "email": "contact@hunterahlquist.com"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  },
+  "description": "328 Final Project"
+}
