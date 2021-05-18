@@ -18,10 +18,29 @@ $f3->route('GET /', FUNCTION(){
     echo $view->render('views/home.html');
 });
 
-//prepare route for errors
+/*//prepare route for errors
 $f3->set('ONERROR', function() {
     $view = new Template();
     echo $view->render('views/error.html');
+});*/
+
+$f3->set('ONERROR', function($f3) {
+
+    switch ($f3->get('ERROR.code')) {
+
+        case 403:
+            $view = new Template();
+            echo $view->render('views/custom-403-error.html');
+            break;
+        case 404:
+            $view = new Template();
+            echo $view->render('views/error.html');
+            break;
+        case 500:
+            $view = new Template();
+            echo $view->render('views/custom-500-error.html');
+            break;
+    }
 });
 
 //run fat-free
