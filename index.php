@@ -17,6 +17,24 @@ $f3->route('GET /', FUNCTION(){
     $view = new Template();
     echo $view->render('views/home.html');
 });
+$f3->route('GET /store', FUNCTION(){
+    //display the store browser
+    /*
+     * here, ensure that the demo user is logged in.
+     */
+
+    $view = new Template();
+    echo $view->render('views/storeFront.html');
+});
+$f3->route('GET /cart', FUNCTION(){
+    //display the cart
+    /*
+     * here, ensure that the demo user is logged in.
+     */
+
+    $view = new Template();
+    echo $view->render('views/cart.html');
+});
 
 /*//prepare route for errors
 $f3->set('ONERROR', function() {
