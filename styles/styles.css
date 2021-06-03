@@ -50,8 +50,8 @@
     font-weight: 300;
 }
 .btn-gold{
-    background-color: #000 !important;
-    color: #fff;
+    background-color: goldenrod !important;
+    color: white;
 }
 
 body, html {
@@ -64,12 +64,10 @@ body, html {
     height: 10% !important;
 }
 
-.cartBody {
-    padding: 2em;
-    margin: 2em;
-    width: 75%;
-    min-height: 50em;
-    background-color: #fff3dc;
-    border-color: #ffd893 !important;
-    box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #e3e3e3;
+.quanity-label {
+    padding-left: 1em;
+    padding-right: 1em;
 }
+
+
+

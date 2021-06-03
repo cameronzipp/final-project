@@ -1,0 +1,19 @@
+.product-thumb {
+    margin: 1em;
+    height: 15em;
+}
+
+.cart-body {
+    padding: 2em;
+    margin: 2em;
+    width: 75%;
+    min-height: 50em;
+    background-color: #fff3dc;
+    border-color: #ffd893 !important;
+    box-shadow: 20px 20px 60px #c9c9c9, -20px -20px 60px #e3e3e3;
+}
+
+.cart-item {
+    margin: 1em;
+}
+
