@@ -24,7 +24,7 @@ $f3->route('GET /store', FUNCTION(){
      */
 
     $view = new Template();
-    echo $view->render('views/storeFront.html');
+    echo $view->render('views/store.html');
 });
 $f3->route('GET /cart', FUNCTION(){
     //display the cart
