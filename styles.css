@@ -1,0 +1,70 @@
+.home-page {
+    font-family: "Lato", sans-serif;
+}
+.sidebar {
+    height: 100%;
+    background-color: goldenrod;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.main-page {
+    height: 100%;
+    background-color: #7020da;
+    padding: 0px 10px;
+}
+/*@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+}
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+    .register-form{
+        margin-top: 10%;
+    }
+}*/
+@media screen and (min-width: 768px){
+    .main-page{
+        margin-left: 40%;
+    }
+    .sidebar{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    .login-form{
+        margin-top: 80%;
+    }
+    .register-form{
+        margin-top: 20%;
+    }
+}
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+.login-main-text h2{
+    font-weight: 300;
+}
+.btn-gold{
+    background-color: goldenrod !important;
+    color: white;
+}
+
+body, html {
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+.mainNav {
+    background-color: goldenrod;
+    height: 10% !important;
+}
+
+.quanity-label {
+    padding-left: 1em;
+    padding-right: 1em;
+}
