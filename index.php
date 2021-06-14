@@ -1,6 +1,4 @@
 <?php
-//this is the controller class
-
 //turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -8,32 +6,28 @@ error_reporting(E_ALL);
 //require autoload files
 require_once ('vendor/autoload.php');
 
+//start a session after autoload
+session_start();
+
 //instantiate fat-free
 $f3 = Base::instance();
+$con = new Controller($f3);
+//$dataLayer = new DataLayer();
 
 //define routes
 $f3->route('GET /', FUNCTION(){
     //display the home page
-    $view = new Template();
-    echo $view->render('views/home.html');
+    $GLOBALS['con']->home();
 });
+
 $f3->route('GET /store', FUNCTION(){
     //display the store browser
-    /*
-     * here, ensure that the demo user is logged in.
-     */
-
-    $view = new Template();
-    echo $view->render('views/store.html');
+    $GLOBALS['con']->store();
 });
+
 $f3->route('GET /cart', FUNCTION(){
     //display the cart
-    /*
-     * here, ensure that the demo user is logged in.
-     */
-
-    $view = new Template();
-    echo $view->render('views/cart.html');
+    $GLOBALS['con']->cart();
 });
 
 /*//prepare route for errors
