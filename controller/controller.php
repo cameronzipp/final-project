@@ -1,7 +1,6 @@
 <?php
 
-
-class controller
+class Controller
 {
 
     private $_f3; //router
@@ -18,12 +17,17 @@ class controller
         echo $view->render('views/home.html');
     }
 
-    function order()
+    function store()
     {
-        //Reinitialize session array
-        $_SESSION = array();
-
-        $_SESSION['order'] = new Order();
+        //Display the store page
+        $view = new Template();
+        echo $view->render('views/store.html');
     }
 
+    function cart()
+    {
+        //Display the cart page
+        $view = new Template();
+        echo $view->render('views/cart.html');
+    }
 }

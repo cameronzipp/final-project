@@ -4,19 +4,32 @@ function validate() {
     let isValid = true;
 
     let errors = document.getElementsByClassName("err");
-    for (let i =0; i<errors.length;i++){
+    for (let i = 0; i < errors.length; i++){
         errors[i].style.display = "none";
     }
 
-    //check username
+    /*
+    Check username
+    Must not be empty, or 4 or less characters
+     */
     let username = document.getElementById("uname").value;
-    if (username == "") {//username must not be an empty string
-        let errUserEmpty = document.getElementById("err-user-empty");
-        errUserEmpty.style.display = "inline";
+    if (username == "" || username.length <= 4) {
+        let errUser = document.getElementById("err-user");
+        errUser.style.display = "inline";
         isValid = false;
-    } else if (username.length <= 4) { //username must be greater than or equal to 4 chars
-        let errUserLength = document.getElementById("err-user-length");
-        errUserLength.style.display = "inline";
+    }
+
+    /*
+    Check password
+    Must not be empty, 8 or less characters, and must include a special character
+     */
+    let password = document.getElementById("pass").value;
+    if (password == "" || password.length <= 8 || !password.contains("@") || !password.contains("!") ||
+        !password.contains("%")|| !password.contains("#") || !password.contains("$") ||
+        !password.contains("*") || !password.contains("?")) {
+        let errPass = document.getElementById("err-pass");
+        errPass.style.display = "inline";
+
         isValid = false;
     }
 
