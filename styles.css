@@ -1,0 +1,169 @@
+.home-page {
+    font-family: "Lato", sans-serif;
+}
+.sidebar {
+    height: 100%;
+    background-color: goldenrod;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+.main-page {
+    height: 100%;
+    background-color: #7020da;
+    padding: 0px 10px;
+}
+/*@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+}
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+    .register-form{
+        margin-top: 10%;
+    }
+}*/
+@media screen and (min-width: 768px){
+    .main-page{
+        margin-left: 40%;
+    }
+    .sidebar{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+    .login-form{
+        margin-top: 80%;
+    }
+    .register-form{
+        margin-top: 20%;
+    }
+}
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+.login-main-text h2{
+    font-weight: 300;
+}
+.btn-gold{
+    background-color: goldenrod !important;
+    color: white;
+}
+
+body, html {
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+.mainNav {
+    background-color: goldenrod;
+    height: 10% !important;
+}
+
+.quanity-label {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.err {
+    color:#990000;
+    font-weight: bold;
+    display:none;
+}
+
+.module .collapse, .module .collapsing {
+    height: 3rem;  /* [NUM_OF_LINES] x [LINE_HEIGHT] */
+}
+
+.module .collapse {
+    position: relative;  /* For ...'s content absolute positioning */
+    display: block;
+    overflow: hidden;
+}
+
+.module .collapse:before {
+    content: ' ...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.module .collapse.show {
+    height: auto;  /* You need to reset the height when not collapsed */
+}
+
+.module .collapse.show:before {
+    display: none;  /* Of course you don't want to display ... */
+}
+
+.module a.collapsed:after {
+    content: '+ Show More';
+}
+
+.module a:not(.collapsed):after {
+    content: '- Show Less';
+}
+
+/* Style all input fields */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/* Style the container for inputs */
+.container {
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+    display:none;
+    background: #f1f1f1;
+    color: #000;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#message p {
+    padding: 10px 35px;
+    font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "&#10003;";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+    color: red;
+}
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: '&#10006';
+}
