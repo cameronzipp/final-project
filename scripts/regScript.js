@@ -5,6 +5,7 @@ let letter = document.getElementById("letter");
 let capital = document.getElementById("capital");
 let number = document.getElementById("number");
 let length = document.getElementById("length");
+let special = document.getElementById("special");
 let passBox = document.getElementById("message");
 
 // When the user clicks on the password field, show the message box
@@ -59,6 +60,16 @@ passw.onkeyup = function() {
     } else {
         length.classList.remove("valid");
         length.classList.add("invalid");
+    }
+
+    // Validate special characters
+    let specialChar = /[!@#$%^&*]/
+    if(passw.value.match(specialChar)) {
+        special.classList.remove("invalid");
+        special.classList.add("valid");
+    } else {
+        special.classList.remove("valid");
+        special.classList.add("invalid");
     }
 }
 
