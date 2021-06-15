@@ -14,6 +14,7 @@ class Controller
             $username = $_POST['uname'];
             $loginInfo = $GLOBALS['pdo']->prepare('SELECT * FROM User WHERE username = ? LIMIT 1');
             $loginInfo->execute([$username]);
+
             if ($loginInfo->rowCount() >= 0){
                 foreach ($loginInfo as $row){
                     if ($row['pass'] = hash("sha256", $_POST['pass'])) {
@@ -29,9 +30,11 @@ class Controller
                 echo "Login failed";
             }
         }
+
         //Display the home page
         $view = new Template();
         echo $view->render('views/home.html');
+
     }
 
     function store($f3)
@@ -46,7 +49,6 @@ class Controller
         $CPUProducts = $GLOBALS['pdo']->query('SELECT * FROM GPUProduct INNER JOIN Product ON GPUProduct.product_id = Product.id');
         $f3->set("gpu", $CPUProducts);
         //display the store browser
-        $GLOBALS['con']->store($f3);
 
         $view = new Template();
         echo $view->render('views/store.html');
@@ -64,19 +66,24 @@ class Controller
     }
 
     function error($f3) {
-        switch ($f3->get('ERROR.code')) {
-            case 403:
-                $view = new Template();
-                echo $view->render('views/custom-403-error.html');
-                break;
-            case 404:
-                $view = new Template();
-                echo $view->render('views/error.html');
-                break;
-            case 500:
-                $view = new Template();
-                echo $view->render('views/custom-500-error.html');
-                break;
+        if ($f3->get("DEBUG") > 0){
+            echo $f3->get('ERROR.text');
+        } else {
+            switch ($f3->get('ERROR.code')) {
+                case 403:
+                    $view = new Template();
+                    echo $view->render('views/custom-403-error.html');
+                    break;
+                case 404:
+                    $view = new Template();
+                    echo $view->render('views/error.html');
+                    break;
+                case 500:
+                    $view = new Template();
+                    echo $view->render('views/custom-500-error.html');
+                    break;
+            }
         }
+
     }
 }

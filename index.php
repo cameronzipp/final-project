@@ -11,7 +11,7 @@ require ($_SERVER["DOCUMENT_ROOT"] . '/../db.php');
 
 //instantiate fat-free
 $f3 = Base::instance();
-$f3->set('DEBUG' , 3);
+$f3->set("DEBUG", 3);
 
 if (!isset($_SESSION)){
     //start a session after autoload
@@ -27,14 +27,13 @@ $f3->set("navCategory", $catNav);
 //define routes
 $f3->route('GET|POST /', 'Controller->home');
 
-$f3->route('GET /store', 'Controller->store');
+$f3->route('GET|POST /store', 'Controller->store');
 
 $f3->route('GET /cart', 'Controller->cart');
 
-$f3->route('GET|HEAD /home', FUNCTION($f3){ $f3->reroute('GET|HEAD /home', '/'); });
+$f3->redirect('GET|HEAD /home', '/');
 
 $f3->route('GET|HEAD /logout', FUNCTION(){
-    //display the cart
     session_destroy(); //this could cause an issue with the session if the session doesnt actually recreate when redirected
     header("Location:home");
 });
