@@ -1,88 +1,91 @@
 <include href="views/header.html"/>
 <body>
-    <div class="container-flex" style="background-color: whitesmoke">
-        <include href="views/nav.html"></include>
-    </div>
-    <div class="container-flex">
-        <h1 style="text-align: center">Products</h1>
-        <div class="row-flex">
-            <div class="md-col-12">
-                <repeat group="{{ @cpu }}" value="{{ @prod }}">
-                    <!--Item-->
-                    <div class="row container bg-white rounded border border-secondary cart-item mx-auto">
-                        <div class="col-md-3">
-                            <!--Thumbnail-->
-                            <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @prod->getThumbnail() }}">
-                        </div>
-                        <div class="col-md-7">
-                            <!--Product-->
-                            <h2 class="display-6 text-center">{{ @prod->getName() }}</h2>
-                            <div class="module">
-                                <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @prod->getID() }}"
-                                   aria-expanded="false" aria-controls="{{ @prod->getID() }}"></a>
-                                <div class="row-fluid rounded border border-muted collapse" id="{{ @prod->getID() }}" aria-expanded="false">
-                                    <h4>Description</h4>
-                                    <p>
-                                        {{ @prod->getDescription() }}
-                                    </p>
-                                    <h4>Specs</h4>
-                                    <p>
-                                        Cores: {{ @prod->getCores() }} <br>
-                                        Tdp: {{ @prod->getTdp() }} <br>
-                                        Socket: {{ @prod->getSocket() }} <br>
-                                        Manufacturer: {{ @prod->getManufacturer() }} <br>
-                                        Max/Stock Frequency (ghz): {{ @prod->getFreqGhz() }} <br>
-                                    </p>
-                                </div>
+<div class="container-flex" style="background-color: whitesmoke">
+    <include href="views/nav.html"></include>
+</div>
+<div class="container-flex">
+    <h1 style="text-align: center">Products</h1>
+    <div class="row-flex">
+        <div class="md-col-12">
+            <repeat group="{{ @cpu }}" value="{{ @prod }}">
+                <!--Item-->
+                <div class="row container bg-white rounded border border-secondary cart-item mx-auto">
+                    <div class="col-md-3">
+                        <!--Thumbnail-->
+                        <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @prod->getThumbnail() }}">
+                    </div>
+                    <div class="col-md-7">
+                        <!--Product-->
+                        <h2 class="display-6 text-center">{{ @prod->getName() }}</h2>
+                        <div class="module">
+                            <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @prod->getID() }}"
+                               aria-expanded="false" aria-controls="{{ @prod->getID() }}"></a>
+                            <div class="row-fluid rounded border border-muted collapse" id="{{ @prod->getID() }}" aria-expanded="false">
+                                <h4>Description</h4>
+                                <p>
+                                    {{ @prod->getDescription() }}
+                                </p>
+                                <h4>Specs</h4>
+                                <p>
+                                    Cores: {{ @prod->getCores() }} <br>
+                                    Tdp: {{ @prod->getTdp() }} <br>
+                                    Socket: {{ @prod->getSocket() }} <br>
+                                    Manufacturer: {{ @prod->getManufacturer() }} <br>
+                                    Max/Stock Frequency (ghz): {{ @prod->getFreqGhz() }} <br>
+                                </p>
                             </div>
                         </div>
-                        <div class="col-md-2 text-right">
-                            <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @prod->getPrice() }}</h2>
-                        </div>
                     </div>
-                </repeat>
-                <repeat group="{{ @gpu }}" value="{{ @prod }}">
-                    <!--Item-->
-                    <div class="row container bg-white rounded border border-secondary cart-item mx-auto">
-                        <div class="col-md-3">
-                            <!--Thumbnail-->
-                            <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @prod->getThumbnail() }}">
-                        </div>
-                        <div class="col-md-7">
-                            <!--Product-->
-                            <h2 class="display-6 text-center">{{ @prod->getName() }}</h2>
-                            <div class="module">
-                                <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @prod->getID() }}"
-                                   aria-expanded="false" aria-controls="{{ @prod->getID() }}"></a>
-                                <div class="row-fluid rounded border border-muted collapse" id="{{ @prod->getID() }}" aria-expanded="false">
-                                    <h4>Description</h4>
-                                    <p>
-                                        {{ @prod->getDescription() }}
-                                    </p>
-                                    <h4>Specs</h4>
-                                    <p>
-                                        Tdp: {{ @prod->getTdp() }} <br>
-                                        Brand: {{ @prod->getChipBrand() }} <br>
-                                        Manufacturer: {{ @prod->getManufacturer() }} <br>
-                                        Max/Stock Frequency (mhz): {{ @prod->getFreqMhz() }} <br>
-                                        Video Memory: {{ @prod->getVmemMb() }} <br>
-                                    </p>
-                                </div>
+                    <div class="col-md-2 text-right">
+                        <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @prod->getPrice() }}</h2>
+                    </div>
+                </div>
+            </repeat>
+            <repeat group="{{ @gpu }}" value="{{ @prod }}">
+                <!--Item-->
+                <div class="row container bg-white rounded border border-secondary cart-item mx-auto">
+                    <div class="col-md-3">
+                        <!--Thumbnail-->
+                        <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @prod->getThumbnail() }}">
+                    </div>
+                    <div class="col-md-7">
+                        <!--Product-->
+                        <h2 class="display-6 text-center">{{ @prod->getName() }}</h2>
+                        <div class="module">
+                            <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @prod->getID() }}"
+                               aria-expanded="false" aria-controls="{{ @prod->getID() }}"></a>
+                            <div class="row-fluid rounded border border-muted collapse" id="{{ @prod->getID() }}" aria-expanded="false">
+                                <h4>Description</h4>
+                                <p>
+                                    {{ @prod->getDescription() }}
+                                </p>
+                                <h4>Specs</h4>
+                                <p>
+                                    Tdp: {{ @prod->getTdp() }} <br>
+                                    Brand: {{ @prod->getChipBrand() }} <br>
+                                    Manufacturer: {{ @prod->getManufacturer() }} <br>
+                                    Max/Stock Frequency (mhz): {{ @prod->getFreqMhz() }} <br>
+                                    Video Memory: {{ @prod->getVmemMb() }} <br>
+                                </p>
                             </div>
+                        </div>
 
 
-                        </div>
-                        <div class="col-md-2 text-right">
-                            <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @prod->getPrice() }}</h2>
-                        </div>
                     </div>
-                </repeat>
-            </div>
+                    <div class="col-md-2 text-right">
+                        <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @prod->getPrice() }}</h2>
+                    </div>
+                </div>
+            </repeat>
         </div>
-        <br>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <br>
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="scripts/stockUpdater.js"></script>
 </body>
 </html>

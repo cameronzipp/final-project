@@ -53,7 +53,7 @@ Hunter - Co-Founder/Developer
 
 ✔️ 8. Has full validation on the client side through JavaScript and server side through PHP.
 
-<!-- User and ProUser sign up, and Creation form has full validation on the client side through JavaScript (scripts/validate.js) and server side through PHP (model/validate.PHP). -->
+- Full validation forms is present client, and server side.
 
 ✔️ 9. All code is clean, clear, and well-commented. DRY (Don't Repeat Yourself) is practiced.
 
@@ -62,6 +62,10 @@ Hunter - Co-Founder/Developer
 ✔️ 10. Your submission shows adequate effort for a final project in a full-stack web development course.
 
 - We learned a lot about project scope, and time management this quarter and made sure to implement as much as we could in the timeframe given. 
+
+✔️ 11. BONUS:  Incorporates Ajax that access data from a JSON file, PHP script, or API. If you implement Ajax, be sure to include how you did so in your readme file.
+
+- Categories are loaded through a custom API (categoryGet.php) function and populated in the navbar.
 
 # UML Diagram
 

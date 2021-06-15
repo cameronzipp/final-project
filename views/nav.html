@@ -7,9 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <repeat group="{{ @navCategory }}" value="{{ @row }}">
-                        <a style="display: inline" class="nav-link" href="#">{{@row['typeLabel']}}</a>
-                    </repeat>
+                    <a id="categoryList" style="display: inline">In stock: (loading...)</a>
                 </li>
             </ul>
             <check if="{{ isset($_SESSION['userId']) }}">
@@ -25,7 +23,6 @@
                     </li>
                 </ul>
             </check>
-
         </div>
     </nav>
 </nav>

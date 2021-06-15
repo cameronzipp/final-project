@@ -11,17 +11,12 @@ require ($_SERVER["DOCUMENT_ROOT"] . '/../db.php');
 
 //instantiate fat-free
 $f3 = Base::instance();
-$f3->set("DEBUG", 3);
 
 if (!isset($_SESSION)){
     //start a session after autoload
     session_start();
 }
 
-
-//navbar operations
-$catNav = $pdo->query('SELECT * FROM Category');
-$f3->set("navCategory", $catNav);
 if (isset($_SESSION['user'])) {
     $f3->set("user", $_SESSION['user']);
 }
