@@ -2,8 +2,28 @@
 
 class Controller
 {
+    function login($f3, $username, $pass) {
+        $loginInfo = $GLOBALS['pdo']->prepare('SELECT * FROM User WHERE username = ? LIMIT 1');
+        $loginInfo->execute([$username]);
+        if ($loginInfo->rowCount() > 0){
+            foreach ($loginInfo as $row){
+                if (strcasecmp($row['pass'], hash("sha256", $pass)) == 0) {
+                    $_SESSION['userId'] = $row['id'];
+                    $user = new User($row['id'], $row['username']);
+                    $_SESSION['user'] = $user;
+                    header("Location:store");
+                } else { //password incorrect
+                    $f3->set("error_status", 1);
+                }
+            }
+        } else { //user not found
+            $f3->set("error_status", 1);
+        }
+    }
+
     function home($f3)
-    {
+    { //home and login
+        $f3->set("error_status", 0);
         if (isset($_SESSION['userId'])){
             header("Location:store");
         } else {
@@ -11,24 +31,7 @@ class Controller
         }
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = $_POST['uname'];
-            $loginInfo = $GLOBALS['pdo']->prepare('SELECT * FROM User WHERE username = ? LIMIT 1');
-            $loginInfo->execute([$username]);
-
-            if ($loginInfo->rowCount() >= 0){
-                foreach ($loginInfo as $row){
-                    if ($row['pass'] = hash("sha256", $_POST['pass'])) {
-                        $_SESSION['userId'] = $row['id'];
-                        header("Location:store");
-                    } else {
-                        $f3->set("login-error-status", true);
-                        echo "Login failed";
-                    }
-                }
-            } else {
-                $f3->set("login-error-status", true);
-                echo "Login failed";
-            }
+            $this->login($f3, $_POST['uname'], $_POST['pass']);
         }
 
         //Display the home page
@@ -49,7 +52,7 @@ class Controller
         $CPUProducts = $GLOBALS['pdo']->query('SELECT * FROM GPUProduct INNER JOIN Product ON GPUProduct.product_id = Product.id');
         $f3->set("gpu", $CPUProducts);
         //display the store browser
-
+        //print_r($_SESSION['user']);
         $view = new Template();
         echo $view->render('views/store.html');
     }
@@ -65,7 +68,23 @@ class Controller
         echo $view->render('views/cart.html');
     }
 
-    function register() {
+    function register($f3) {
+        if (isset($_SESSION['userId'])){
+            header("Location:store");
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = $_POST['uname'];
+            $password = hash("sha256", $_POST['pass']);
+
+            $loginInfo = $GLOBALS['pdo']->prepare('INSERT INTO User (username, pass) VALUES (?, ?)');
+            $success = $loginInfo->execute([$username, $password]);
+
+            if ($success) {
+                $this->login($f3, $username, $_POST['pass']);
+            }
+        }
+
         //Display the cart page
         $view = new Template();
         echo $view->render('views/register.html');

@@ -12,12 +12,17 @@ Hunter - Co-Founder/Developer
 
 ✔️ 1. Separates all database/business logic using the MVC pattern.
 
-Business logic and database under model folder
-All HTML files under views folder
-Routes to all the html view files under the index.php
-index.php calls the function in the Controller class to get data from model and return views.
-Classes under classes folder
-JavaScripts under scripts
+- Business logic and database under model folder
+
+- All HTML files under views folder
+
+- Routes to all the html view files under the index.php
+
+- index.php calls the function in the Controller class to get data from model and return views.
+
+- Classes under classes folder
+
+- JavaScripts under scripts
 
 ✔️ 2. Routes all URLs and leverages a templating language using Fat-Free framework
 
@@ -54,3 +59,4 @@ All functions and files are commented. Any code that was repeated was turned int
 ✔️ 10. Your submission shows adequate effort for a final project in a full-stack web development course.
 
 We learned a lot this quarter and made sure to implement as much as we could in the timeframe given. 
+

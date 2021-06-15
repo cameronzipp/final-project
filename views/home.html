@@ -10,18 +10,19 @@
     <div class="main-page">
         <div class="col-md-6 col-sm-12">
             <div class="login-form">
+                <check if="{{ @error_status }}">
+                    <span style="display: inline" class="err">Incorrect credentials</span>
+                </check>
                 <form id="homeLoginForm" action="#" method="post">
                     <div class="form-group">
                         <label>User Name</label>
                         <input type="text" class="form-control" placeholder="User Name" id="uname" name="uname">
-                        <span class="err" id="err-user">Please enter a  valid username cannot be empty</span>
+                        <span class="err" id="err-user">Please enter a valid username cannot be empty</span>
                     </div>
 
                     <div class="form-group">
                         <label>Password</label>
-                        <span class="input-group-text" id="basic-addon1">
-                            <i class="bi bi-eye"></i><input type="password" class="form-control" placeholder="Password" id="pass" name="pass">
-                        </span>
+                        <input type="password" class="form-control" placeholder="Password" id="pass" name="pass">
                         <span class="err" id="err-pass">Please enter a valid password</span>
                     </div>
 
@@ -30,12 +31,6 @@
                     <div> <!--class="col-12">-->
                         <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
                         <a href="register"><button type="button" class="btn btn-primary" id="registerButton">Register</button></a>
-                    </div>
-                    <br>
-
-                    <!-- Demo Login button -->
-                    <div> <!--class="col-12">-->
-                        <a href="cart"><button type="button" class="btn btn-primary" id="demoButton">Demo Login</button></a>
                     </div>
                     <br>
                 </form>

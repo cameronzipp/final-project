@@ -15,14 +15,16 @@ $f3->set("DEBUG", 3);
 
 if (!isset($_SESSION)){
     //start a session after autoload
-    //start a session after autoload
     session_start();
 }
 
 
-//setup categories for navbar
+//navbar operations
 $catNav = $pdo->query('SELECT * FROM Category');
 $f3->set("navCategory", $catNav);
+if (isset($_SESSION['user'])) {
+    $f3->set("user", $_SESSION['user']);
+}
 
 //define routes
 $f3->route('GET|POST /', 'Controller->home');
@@ -33,10 +35,10 @@ $f3->route('GET /cart', 'Controller->cart');
 
 $f3->redirect('GET|HEAD /home', '/');
 
-$f3->route('GET /register', 'Controller->register');
+$f3->route('GET|POST /register', 'Controller->register');
 
 $f3->route('GET|HEAD /logout', FUNCTION(){
-    session_destroy(); //this could cause an issue with the session if the session doesnt actually recreate when redirected
+    session_destroy(); //this could cause an issue with the session if the session doesnt actually recreate when redirected index.php:18
     header("Location:home");
 });
 
