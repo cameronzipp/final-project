@@ -1,7 +1,16 @@
 <?php
 
+/**
+ * Class Controller
+ */
 class Controller
 {
+    /**
+     * creates a login variable with a username and password
+     * @param $f3
+     * @param $username
+     * @param $pass
+     */
     function login($f3, $username, $pass) {
         $loginInfo = $GLOBALS['pdo']->prepare('SELECT * FROM User WHERE username = ? LIMIT 1');
         $loginInfo->execute([$username]);
@@ -21,6 +30,10 @@ class Controller
         }
     }
 
+    /**
+     * Displays the home page. If logged in will show the shop page
+     * @param $f3
+     */
     function home($f3)
     { //home and login
         $f3->set("error_status", 0);
@@ -40,6 +53,10 @@ class Controller
 
     }
 
+    /**
+     * Displays the store page with products from database
+     * @param $f3
+     */
     function store($f3)
     {
         if (!isset($_SESSION['userId'])) {
@@ -68,6 +85,9 @@ class Controller
         echo $view->render('views/store.html');
     }
 
+    /**
+     * displays the cart of the logged in user
+     */
     function cart()
     {
         if (!isset($_SESSION['userId'])){
@@ -79,6 +99,10 @@ class Controller
         echo $view->render('views/cart.html');
     }
 
+    /**
+     * Displays the register page. If logged in, displays the store
+     * @param $f3
+     */
     function register($f3) {
         if (isset($_SESSION['userId'])){
             header("Location:store");
@@ -105,6 +129,10 @@ class Controller
         echo $view->render('views/register.html');
     }
 
+    /**
+     * Displays custom error pages instead of the default, unhelpful, pages.
+     * @param $f3
+     */
     function error($f3) {
         if ($f3->get("DEBUG") > 0){
             echo $f3->get('ERROR.text');
