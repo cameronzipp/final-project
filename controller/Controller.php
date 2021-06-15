@@ -42,7 +42,7 @@ class Controller
 
     function store($f3)
     {
-        if (!isset($_SESSION['userId'])){
+        if (!isset($_SESSION['userId'])) {
             header("Location:logout");
         }
         //get CPUs and load
@@ -88,11 +88,15 @@ class Controller
             $username = $_POST['uname'];
             $password = hash("sha256", $_POST['pass']);
 
-            $loginInfo = $GLOBALS['pdo']->prepare('INSERT INTO User (username, pass) VALUES (?, ?)');
-            $success = $loginInfo->execute([$username, $password]);
+            require("model/validation.php");
 
-            if ($success) {
-                $this->login($f3, $username, $_POST['pass']);
+            if (validPass($_POST['pass']) && validUser($username)){
+                $loginInfo = $GLOBALS['pdo']->prepare('INSERT INTO User (username, pass) VALUES (?, ?)');
+                $success = $loginInfo->execute([$username, $password]);
+
+                if ($success) {
+                    $this->login($f3, $username, $_POST['pass']);
+                }
             }
         }
 
