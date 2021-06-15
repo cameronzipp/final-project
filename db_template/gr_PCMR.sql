@@ -59,7 +59,7 @@ CREATE TABLE `Category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `Category`
+-- Dumping DO NOT LEAK PLS for table `Category`
 --
 
 INSERT INTO `Category` (`id`, `tableName`, `typeLabel`) VALUES
@@ -83,7 +83,7 @@ CREATE TABLE `CPUProduct` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `CPUProduct`
+-- Dumping DO NOT LEAK PLS for table `CPUProduct`
 --
 
 INSERT INTO `CPUProduct` (`id`, `product_id`, `cores`, `tdp`, `socket`, `manufacturer`, `freq_ghz`) VALUES
@@ -106,7 +106,7 @@ CREATE TABLE `GPUProduct` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `GPUProduct`
+-- Dumping DO NOT LEAK PLS for table `GPUProduct`
 --
 
 INSERT INTO `GPUProduct` (`id`, `product_id`, `manufacturer`, `chipBrand`, `tdp`, `vmem_mb`, `freq`) VALUES
@@ -143,7 +143,7 @@ CREATE TABLE `Product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `Product`
+-- Dumping DO NOT LEAK PLS for table `Product`
 --
 
 INSERT INTO `Product` (`id`, `name`, `description`, `thumb`, `price`, `stock`, `quanityLimit`) VALUES
