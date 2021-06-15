@@ -3,69 +3,43 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+
 //require autoload files
 require_once ('vendor/autoload.php');
 
-require ($_SERVER["DOCUMENT_ROOT"] . '/../../db.php');
-
-
-//start a session after autoload
-session_start();
+require ($_SERVER["DOCUMENT_ROOT"] . '/../db.php');
 
 //instantiate fat-free
 $f3 = Base::instance();
-$con = new Controller($f3);
-//$dataLayer = new DataLayer();
+$f3->set('DEBUG' , 3);
+
+if (!isset($_SESSION)){
+    //start a session after autoload
+    //start a session after autoload
+    session_start();
+}
+
 
 //setup categories for navbar
 $catNav = $pdo->query('SELECT * FROM Category');
 $f3->set("navCategory", $catNav);
 
 //define routes
-$f3->route('GET /', FUNCTION(){
-    //display the home page
-    $GLOBALS['con']->home();
-});
+$f3->route('GET|POST /', 'Controller->home');
 
-$f3->route('GET /store', FUNCTION($f3){
-    //get CPUs and load
-    $CPUProducts = $GLOBALS['pdo']->query('SELECT * FROM CPUProduct INNER JOIN Product ON CPUProduct.product_id = Product.id');
-    $f3->set("cpu", $CPUProducts);
-    //get GPUs and load
-    $CPUProducts = $GLOBALS['pdo']->query('SELECT * FROM GPUProduct INNER JOIN Product ON GPUProduct.product_id = Product.id');
-    $f3->set("gpu", $CPUProducts);
-    //display the store browser
-    $GLOBALS['con']->store($f3);
-});
+$f3->route('GET /store', 'Controller->store');
 
-$f3->route('GET /cart', FUNCTION(){
+$f3->route('GET /cart', 'Controller->cart');
+
+$f3->route('GET|HEAD /home', FUNCTION($f3){ $f3->reroute('GET|HEAD /home', '/'); });
+
+$f3->route('GET|HEAD /logout', FUNCTION(){
     //display the cart
-    $GLOBALS['con']->cart();
+    session_destroy(); //this could cause an issue with the session if the session doesnt actually recreate when redirected
+    header("Location:home");
 });
 
-/*//prepare route for errors
-$f3->set('ONERROR', function() {
-    $view = new Template();
-    echo $view->render('views/error.html');
-});*/
-
-$f3->set('ONERROR', function($f3) {
-
-    switch ($f3->get('ERROR.code')) {
-        case 403:
-            $view = new Template();
-            echo $view->render('views/custom-403-error.html');
-            break;
-        case 404:
-            $view = new Template();
-            echo $view->render('views/error.html');
-            break;
-        case 500:
-            $view = new Template();
-            echo $view->render('views/custom-500-error.html');
-            break;
-    }
-});
+$f3->set('ONERROR', 'Controller->error');
 
 //run fat-free
 $f3->run();
