@@ -12,23 +12,28 @@
         </div>
         <div class="col-5 align-self-center">
             <div class="login-form">
-                <check if="{{ @error_status }}">
+                <check if="{{ @error_status }}"> <!-- check error status and display error message -->
                     <span style="display: inline" class="err">Incorrect credentials</span>
                 </check>
                 <form id="homeLoginForm" action="#" method="post">
+                    <!-- Username -->
                     <div class="form-group">
                         <label>User Name</label>
                         <input type="text" class="form-control" placeholder="User Name" id="uname" name="uname">
                         <span class="err" id="err-user">Please enter a valid username cannot be empty</span>
                     </div>
 
+                    <!-- Password -->
                     <div class="form-group">
                         <label>Password</label>
                         <input type="password" class="form-control" placeholder="Password" id="pass" name="pass">
                         <span class="err" id="err-pass">Please enter a valid password</span>
                     </div>
 
-                    <br>
+                    <!-- Forgot password -->
+                    <div class="form-group">
+                        <a href="forgotLogin" id="forgotPass">Forgot Username or Password</a>
+                    </div>
                     <!-- Login & Register buttons -->
                     <div> <!--class="col-12">-->
                         <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
@@ -36,21 +41,10 @@
                     </div>
                     <br>
                 </form>
-            </div>
-        </div>
+            </div> <!-- Login form end -->
+        </div> <!-- Right side container end -->
     </div>
-</div>
-
-<!--<section class="home-page">-->
-<!--    <div class="sidebar">-->
-
-<!--    </div>-->
-<!--    <div class="main-page">-->
-<!--        <div class="col-md-6 col-sm-12">-->
-
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
+</div> <!-- Primary container end -->
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
