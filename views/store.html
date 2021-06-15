@@ -8,46 +8,56 @@
         <h1>Welcome to the store!</h1>
 
         <div class="row">
-            <repeat group="{{ @meals }}" key="{{ @meal_id }}" value="{{ @meal_name }}">
+            <repeat group="{{ @cpu }}" value="{{ @row }}">
+                <!--Item-->
+                <div class="row container bg-white rounded border border-secondary cart-item">
+                    <div class="col-md-3">
+                        <!--Thumbnail-->
+                        <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @row['thumb'] }}">
+                    </div>
+                    <div class="col-md-7">
+                        <!--Product-->
+                        <h2 class="display-6 text-center">{{ @row['name'] }}</h2>
+                        <div class="row-fluid rounded border border-muted module">
+                            <p class="collapse" id="{{ @row['id'] }}" aria-expanded="false">{{ @row['description'] }}</p>
+                            <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @row['id'] }}"
+                               aria-expanded="false" aria-controls="{{ @row['id'] }}"></a>
+                        </div>
 
-                </label><br>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @row['price'] }}</h2>
+                        <!--Price-->
+                        <div class="row-fluid"><a class="btn btn-gold" href="#">-</a><a class="rounded border border-secondary quanity-label">2</a><a class="btn btn-gold" href="#">+</a></div>
+                    </div>
+                </div>
             </repeat>
-           <!-- <div class="col-1"></div>
-            <div class="col-2" style="background-color: darkred">
-                <p>Product #1</p>
-            </div>
-            <div class="col-2" style="background-color: #4e555b">
-                <p>Product #2</p>
-            </div>
-            <div class="col-2" style="background-color: snow">
-                <p>Product #3</p>
-            </div>
-            <div class="col-2" style="background-color: blueviolet">
-                <p>Product #4</p>
-            </div>
-            <div class="col-2" style="background-color: lawngreen">
-                <p>Product #5</p>
-            </div>-->
+            <repeat group="{{ @gpu }}" value="{{ @row }}">
+                <!--Item-->
+                <div class="row container bg-white rounded border border-secondary cart-item">
+                    <div class="col-md-3">
+                        <!--Thumbnail-->
+                        <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @row['thumb'] }}">
+                    </div>
+                    <div class="col-md-7">
+                        <!--Product-->
+                        <h2 class="display-6 text-center">{{ @row['name'] }}</h2>
+                        <div class="row-fluid rounded border border-muted module">
+                            <p class="collapse" id="{{ @row['id'] }}" aria-expanded="false">{{ @row['description'] }}</p>
+                            <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @row['id'] }}"
+                               aria-expanded="false" aria-controls="{{ @row['id'] }}"></a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @row['price'] }}</h2>
+                        <!--Price-->
+                        <div class="row-fluid"><a class="btn btn-gold" href="#">-</a><a class="rounded border border-secondary quanity-label">2</a><a class="btn btn-gold" href="#">+</a></div>
+                    </div>
+                </div>
+            </repeat>
         </div>
         <br>
-        <div class="row">
-            <!--<div class="col-1"></div>
-            <div class="col-2" style="background-color: darkred">
-                <p>Product #1</p>
-            </div>
-            <div class="col-2" style="background-color: #4e555b">
-                <p>Product #2</p>
-            </div>
-            <div class="col-2" style="background-color: snow">
-                <p>Product #3</p>
-            </div>
-            <div class="col-2" style="background-color: blueviolet">
-                <p>Product #4</p>
-            </div>
-            <div class="col-2" style="background-color: lawngreen">
-                <p>Product #5</p>
-            </div>-->
-        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

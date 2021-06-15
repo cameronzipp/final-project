@@ -7,7 +7,6 @@
     <div class="cart-body row rounded">
         <div class="col-10">
             <h2 class="display-4 text-center">Shopping Cart</h2>
-            <repeat group="{{ @cart-items }}" value="{{ @cart-items }}">
                 <!--Item-->
                 <div class="row container bg-white rounded border border-secondary cart-item">
                     <div class="col-md-3">
@@ -30,7 +29,6 @@
 
                     </div>
                 </div>
-            </repeat>
 
 
 
@@ -44,30 +42,29 @@
   <div class="cart-body row rounded">
     <div class="col-10">
       <h2 class="display-4 text-center">Shopping Cart</h2>
-      <repeat group="{{ @cart-items }}" value="{{ @cart-items }}">
-        <!--Item-->
-        <div class="row container bg-white rounded border border-secondary cart-item">
-          <div class="col-md-3">
-            <!--Thumbnail-->
-            <img class="img-thumbnail product-thumb" src="images/rtx-3080-founders.jpg">
-          </div>
-          <div class="col-md-7">
-            <!--Product-->
-            <h2 class="display-6 text-center">NVIDIA RTX 3080 Founders Edition</h2>
-            <div class="row-fluid rounded border border-muted">
-              <p></p>
-            </div>
+    <!--Item-->
+    <div class="row container bg-white rounded border border-secondary cart-item">
+      <div class="col-md-3">
+        <!--Thumbnail-->
+        <img class="img-thumbnail product-thumb" src="images/rtx-3080-founders.jpg">
+      </div>
+      <div class="col-md-7">
+        <!--Product-->
+        <h2 class="display-6 text-center">NVIDIA RTX 3080 Founders Edition</h2>
+        <div class="row-fluid rounded border border-muted">
+          <p></p>
 
-          </div>
-          <div class="col-md-2 text-right align-self-end">
-            <!--Price-->
-            <div class="row-fluid"><a class="btn btn-gold" href="#">-</a><a class="rounded border border-secondary quanity-label">2</a><a class="btn btn-gold" href="#">+</a></div>
-
-            <h2 style="display: inline">$</h2><h2 style="display: inline">9999.99</h2>
-
-          </div>
         </div>
-      </repeat>
+
+      </div>
+      <div class="col-md-2 text-right align-self-end">
+        <!--Price-->
+        <div class="row-fluid"><a class="btn btn-gold" href="#">-</a><a class="rounded border border-secondary quanity-label">2</a><a class="btn btn-gold" href="#">+</a></div>
+
+        <h2 style="display: inline">$</h2><h2 style="display: inline">9999.99</h2>
+
+      </div>
+    </div>
 
 
 

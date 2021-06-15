@@ -17,8 +17,9 @@ class Controller
         echo $view->render('views/home.html');
     }
 
-    function store()
+    function store($f3)
     {
+        //$f3->set("CPUProduct", $cpuProduct);
         //Display the store page
         $view = new Template();
         echo $view->render('views/store.html');

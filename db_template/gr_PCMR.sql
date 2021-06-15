@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 18, 2021 at 02:30 PM
+-- Generation Time: Jun 14, 2021 at 10:16 PM
 -- Server version: 10.3.23-MariaDB-cll-lve
--- PHP Version: 7.3.27
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -57,6 +57,14 @@ CREATE TABLE `Category` (
   `tableName` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `typeLabel` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `Category`
+--
+
+INSERT INTO `Category` (`id`, `tableName`, `typeLabel`) VALUES
+(1, 'CPUProduct', 'Processors'),
+(2, 'GPUProduct', 'Graphics Cards');
 
 -- --------------------------------------------------------
 
@@ -128,6 +136,7 @@ CREATE TABLE `Product` (
   `id` int(11) NOT NULL,
   `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumb` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `stock` int(11) NOT NULL DEFAULT 1,
   `quanityLimit` int(11) NOT NULL
@@ -137,9 +146,9 @@ CREATE TABLE `Product` (
 -- Dumping data for table `Product`
 --
 
-INSERT INTO `Product` (`id`, `name`, `description`, `price`, `stock`, `quanityLimit`) VALUES
-(1, 'AMD Ryzen 7 5800x', 'test', 500, 100, 1),
-(2, 'RTX 3070 Ti', 'The GeForce RTX 3070 Ti will be a high-end graphics card by NVIDIA, that is expected to launch on May 31st, 2021. Built on the 8 nm process, and based on the GA104 graphics processor, in its GA104-400-A1 variant, the card supports DirectX 12 Ultimate. This ensures that all modern games will run on GeForce RTX 3070 Ti. Additionally, the DirectX 12 Ultimate capability guarantees support for hardware-raytracing, variable-rate shading and more, in upcoming video games. The GA104 graphics processor is a large chip with a die area of 392 mm² and 17,400 million transistors. It features 6144 shading units, 192 texture mapping units, and 96 ROPs. Also included are 192 tensor cores which help improve the speed of machine learning applications. The card also has 48 raytracing acceleration cores. NVIDIA has paired 8 GB GDDR6X memory with the GeForce RTX 3070 Ti, which are connected using a 256-bit memory interface. The GPU is operating at a frequency of 1575 MHz, which can be boosted up to 1770 MHz, memory is running at 1188 MHz (19 Gbps effective).\r\nBeing a dual-slot card, the NVIDIA GeForce RTX 3070 Ti draws power from 1x 12-pin power connector, with power draw rated at 200 W maximum. Display outputs include: 1x HDMI, 3x DisplayPort. GeForce RTX 3070 Ti is connected to the rest of the system using a PCI-Express 4.0 x16 interface. The card measures 242 mm in length, 112 mm in width, and features a dual-slot cooling solution. Its price at launch will be 599 US Dollars.', 600, 1, 2);
+INSERT INTO `Product` (`id`, `name`, `description`, `thumb`, `price`, `stock`, `quanityLimit`) VALUES
+(1, 'AMD Ryzen 7 5800x', 'test', 'ryzen7-5700x.jpg', 500, 100, 1),
+(2, 'RTX 3070 Ti', 'The GeForce RTX 3070 Ti will be a high-end graphics card by NVIDIA, that is expected to launch on May 31st, 2021. Built on the 8 nm process, and based on the GA104 graphics processor, in its GA104-400-A1 variant, the card supports DirectX 12 Ultimate. This ensures that all modern games will run on GeForce RTX 3070 Ti. Additionally, the DirectX 12 Ultimate capability guarantees support for hardware-raytracing, variable-rate shading and more, in upcoming video games. The GA104 graphics processor is a large chip with a die area of 392 mm² and 17,400 million transistors. It features 6144 shading units, 192 texture mapping units, and 96 ROPs. Also included are 192 tensor cores which help improve the speed of machine learning applications. The card also has 48 raytracing acceleration cores. NVIDIA has paired 8 GB GDDR6X memory with the GeForce RTX 3070 Ti, which are connected using a 256-bit memory interface. The GPU is operating at a frequency of 1575 MHz, which can be boosted up to 1770 MHz, memory is running at 1188 MHz (19 Gbps effective).\r\nBeing a dual-slot card, the NVIDIA GeForce RTX 3070 Ti draws power from 1x 12-pin power connector, with power draw rated at 200 W maximum. Display outputs include: 1x HDMI, 3x DisplayPort. GeForce RTX 3070 Ti is connected to the rest of the system using a PCI-Express 4.0 x16 interface. The card measures 242 mm in length, 112 mm in width, and features a dual-slot cooling solution. Its price at launch will be 599 US Dollars.', 'rtx-3080-founders.jpg', 600, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -223,7 +232,7 @@ ALTER TABLE `CartItem`
 -- AUTO_INCREMENT for table `Category`
 --
 ALTER TABLE `Category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `CPUProduct`

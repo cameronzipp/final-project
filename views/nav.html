@@ -7,7 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">[Category]</a>
+                    <repeat group="{{ @navCategory }}" value="{{ @row }}">
+                        <a style="display: inline" class="nav-link" href="#">{{@row['typeLabel']}}</a>
+                    </repeat>
+
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">

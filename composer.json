@@ -14,7 +14,7 @@
     "bcosca/fatfree-core": "dev-master"
   },
   "autoload": {
-    "classmap": ["model/", "controller/"]
+    "classmap": ["model/", "controller/", "data-layer/"]
   },
   "description": "328 Final Project"
 }

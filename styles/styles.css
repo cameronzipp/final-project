@@ -1,5 +1,6 @@
 .home-page {
     font-family: "Lato", sans-serif;
+    height: 100%;
 }
 .sidebar {
     height: 100%;
@@ -42,8 +43,6 @@
     }
 }
 .login-main-text{
-    margin-top: 20%;
-    padding: 60px;
     color: #fff;
 }
 .login-main-text h2{
@@ -67,4 +66,37 @@ body, html {
 .quanity-label {
     padding-left: 1em;
     padding-right: 1em;
+}
+
+.module .collapse, .module .collapsing {
+    height: 3rem;  /* [NUM_OF_LINES] x [LINE_HEIGHT] */
+}
+
+.module .collapse {
+    position: relative;  /* For ...'s content absolute positioning */
+    display: block;
+    overflow: hidden;
+}
+
+.module .collapse:before {
+    content: ' ...';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.module .collapse.show {
+    height: auto;  /* You need to reset the height when not collapsed */
+}
+
+.module .collapse.show:before {
+    display: none;  /* Of course you don't want to display ... */
+}
+
+.module a.collapsed:after {
+    content: '+ Show More';
+}
+
+.module a:not(.collapsed):after {
+    content: '- Show Less';
 }
