@@ -6,6 +6,23 @@ class Product {
     private $price;
     private $stock;
     private $quanityLimit;
+    private $thumbnail;
+
+    /**
+     * @return mixed
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    /**
+     * @param mixed $thumbnail
+     */
+    public function setThumbnail($thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+    }
 
     /**
      * @return mixed
@@ -112,7 +129,7 @@ class Product {
      * @param $stock
      * @param $quanityLimit
      */
-    public function __construct($id, $name, $description, $price, $stock, $quanityLimit)
+    public function __construct($id, $name, $description, $price, $stock, $quanityLimit, $thumbnail)
     {
         $this->id = $id;
         $this->name = $name;
@@ -120,6 +137,7 @@ class Product {
         $this->price = $price;
         $this->stock = $stock;
         $this->quanityLimit = $quanityLimit;
+        $this->thumbnail = $thumbnail;
     }
 
 }
@@ -132,15 +150,71 @@ class CPUProduct extends Product {
     private $manufacturer;
     private $freq_ghz;
 
-    public function __construct($id, $name, $description, $price, $stock, $quanityLimit,
+    public function __construct($id, $name, $description, $price, $stock, $quanityLimit, $thumbnail,
                                 $productID, $cores, $tdp, $socket, $manufacturer, $freq_ghz) {
-        parent::__construct($id, $name, $description, $price, $stock, $quanityLimit);
+        parent::__construct($id, $name, $description, $price, $stock, $quanityLimit, $thumbnail);
         $this->productID = $productID;
         $this->cores = $cores;
         $this->tdp = $tdp;
         $this->socket = $socket;
         $this->manufacturer = $manufacturer;
         $this->freq_ghz = $freq_ghz;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return parent::getId();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return parent::getName();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return parent::getDescription();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return parent::getPrice();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStock()
+    {
+        return parent::getStock();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuanityLimit()
+    {
+        return parent::getQuanityLimit();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getThumbnail()
+    {
+        return parent::getThumbnail();
     }
 
     /**
@@ -249,16 +323,72 @@ class GPUProduct extends Product {
     private $manufacturer;
     private $freq_mhz;
 
-    public function __construct($id, $name, $description, $price, $stock, $quanityLimit,
+    public function __construct($id, $name, $description, $price, $stock, $quanityLimit, $thumbnail,
                                 $productID, $chipBrand, $tdp, $vmem_mb, $manufacturer, $freq_mhz)
     {
-        parent::__construct($id, $name, $description, $price, $stock, $quanityLimit);
+        parent::__construct($id, $name, $description, $price, $stock, $quanityLimit, $thumbnail);
         $this->productID = $productID;
         $this->chipBrand = $chipBrand;
         $this->tdp = $tdp;
         $this->vmem_mb = $vmem_mb;
         $this->manufacturer = $manufacturer;
         $this->freq_mhz = $freq_mhz;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return parent::getId();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return parent::getName();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return parent::getDescription();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return parent::getPrice();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStock()
+    {
+        return parent::getStock();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuanityLimit()
+    {
+        return parent::getQuanityLimit();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getThumbnail()
+    {
+        return parent::getThumbnail();
     }
 
     /**

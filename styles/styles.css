@@ -56,7 +56,7 @@
 
 body, html {
     height: 100%;
-    background-color: whitesmoke;
+    background-color: #fffae1;
 }
 
 .mainNav {
@@ -76,7 +76,7 @@ body, html {
 }
 
 .module .collapse, .module .collapsing {
-    height: 3rem;  /* [NUM_OF_LINES] x [LINE_HEIGHT] */
+    height: 10em;  /* [NUM_OF_LINES] x [LINE_HEIGHT] */
 }
 
 .module .collapse {

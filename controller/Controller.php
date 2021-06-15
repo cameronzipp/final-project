@@ -46,13 +46,24 @@ class Controller
             header("Location:logout");
         }
         //get CPUs and load
-        $CPUProducts = $GLOBALS['pdo']->query('SELECT * FROM CPUProduct INNER JOIN Product ON CPUProduct.product_id = Product.id');
-        $f3->set("cpu", $CPUProducts);
+        $cpuQuery = $GLOBALS['pdo']->query('SELECT * FROM CPUProduct INNER JOIN Product ON CPUProduct.product_id = Product.id');
+        $cpuProducts = Array();
+        foreach ($cpuQuery as $row) {
+            array_push($cpuProducts, new CPUProduct($row['id'], $row['name'], $row['description'],
+                $row['price'], $row['stock'], $row['quanityLimit'], $row['thumb'], $row['productID'],
+                $row['cores'], $row['tdp'], $row['socket'], $row['manufacturer'], $row['freq_ghz']));
+        }
+        $f3->set("cpu", $cpuProducts);
         //get GPUs and load
-        $CPUProducts = $GLOBALS['pdo']->query('SELECT * FROM GPUProduct INNER JOIN Product ON GPUProduct.product_id = Product.id');
-        $f3->set("gpu", $CPUProducts);
+        $gpuQuery = $GLOBALS['pdo']->query('SELECT * FROM GPUProduct INNER JOIN Product ON GPUProduct.product_id = Product.id');
+        $gpuProducts = Array();
+        foreach ($gpuQuery as $row) {
+            array_push($gpuProducts, new GPUProduct($row['id'], $row['name'], $row['description'],
+                $row['price'], $row['stock'], $row['quanityLimit'], $row['thumb'], $row['productID'],
+                $row['manufacturer'], $row['chipBrand'], $row['tdp'], $row['vmem_mb'], $row['freq']));
+        }
+        $f3->set("gpu", $gpuProducts);
         //display the store browser
-        //print_r($_SESSION['user']);
         $view = new Template();
         echo $view->render('views/store.html');
     }

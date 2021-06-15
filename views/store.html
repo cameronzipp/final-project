@@ -4,58 +4,80 @@
         <include href="views/nav.html"></include>
     </div>
     <div class="container-flex">
-
-        <h1>Welcome to the store!</h1>
-
-        <div class="row">
-            <repeat group="{{ @cpu }}" value="{{ @row }}">
-                <!--Item-->
-                <div class="row container bg-white rounded border border-secondary cart-item">
-                    <div class="col-md-3">
-                        <!--Thumbnail-->
-                        <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @row['thumb'] }}">
-                    </div>
-                    <div class="col-md-7">
-                        <!--Product-->
-                        <h2 class="display-6 text-center">{{ @row['name'] }}</h2>
-                        <div class="row-fluid rounded border border-muted module">
-                            <p class="collapse" id="{{ @row['id'] }}" aria-expanded="false">{{ @row['description'] }}</p>
-                            <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @row['id'] }}"
-                               aria-expanded="false" aria-controls="{{ @row['id'] }}"></a>
+        <h1 style="text-align: center">Products</h1>
+        <div class="row-flex">
+            <div class="md-col-12">
+                <repeat group="{{ @cpu }}" value="{{ @prod }}">
+                    <!--Item-->
+                    <div class="row container bg-white rounded border border-secondary cart-item mx-auto">
+                        <div class="col-md-3">
+                            <!--Thumbnail-->
+                            <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @prod->getThumbnail() }}">
                         </div>
-
-                    </div>
-                    <div class="col-md-2 text-right">
-                        <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @row['price'] }}</h2>
-                        <!--Price-->
-                        <div class="row-fluid"><a class="btn btn-gold" href="#">-</a><a class="rounded border border-secondary quanity-label">2</a><a class="btn btn-gold" href="#">+</a></div>
-                    </div>
-                </div>
-            </repeat>
-            <repeat group="{{ @gpu }}" value="{{ @row }}">
-                <!--Item-->
-                <div class="row container bg-white rounded border border-secondary cart-item">
-                    <div class="col-md-3">
-                        <!--Thumbnail-->
-                        <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @row['thumb'] }}">
-                    </div>
-                    <div class="col-md-7">
-                        <!--Product-->
-                        <h2 class="display-6 text-center">{{ @row['name'] }}</h2>
-                        <div class="row-fluid rounded border border-muted module">
-                            <p class="collapse" id="{{ @row['id'] }}" aria-expanded="false">{{ @row['description'] }}</p>
-                            <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @row['id'] }}"
-                               aria-expanded="false" aria-controls="{{ @row['id'] }}"></a>
+                        <div class="col-md-7">
+                            <!--Product-->
+                            <h2 class="display-6 text-center">{{ @prod->getName() }}</h2>
+                            <div class="module">
+                                <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @prod->getID() }}"
+                                   aria-expanded="false" aria-controls="{{ @prod->getID() }}"></a>
+                                <div class="row-fluid rounded border border-muted collapse" id="{{ @prod->getID() }}" aria-expanded="false">
+                                    <h4>Description</h4>
+                                    <p>
+                                        {{ @prod->getDescription() }}
+                                    </p>
+                                    <h4>Specs</h4>
+                                    <p>
+                                        Cores: {{ @prod->getCores() }} <br>
+                                        Tdp: {{ @prod->getTdp() }} <br>
+                                        Socket: {{ @prod->getSocket() }} <br>
+                                        Manufacturer: {{ @prod->getManufacturer() }} <br>
+                                        Max/Stock Frequency (ghz): {{ @prod->getFreqGhz() }} <br>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-md-2 text-right">
+                            <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @prod->getPrice() }}</h2>
+                        </div>
+                    </div>
+                </repeat>
+                <repeat group="{{ @gpu }}" value="{{ @prod }}">
+                    <!--Item-->
+                    <div class="row container bg-white rounded border border-secondary cart-item mx-auto">
+                        <div class="col-md-3">
+                            <!--Thumbnail-->
+                            <img class="img-thumbnail product-thumb" src="images/thumbs/{{ @prod->getThumbnail() }}">
+                        </div>
+                        <div class="col-md-7">
+                            <!--Product-->
+                            <h2 class="display-6 text-center">{{ @prod->getName() }}</h2>
+                            <div class="module">
+                                <a role="button" class="collapsed" data-toggle="collapse" href="#{{ @prod->getID() }}"
+                                   aria-expanded="false" aria-controls="{{ @prod->getID() }}"></a>
+                                <div class="row-fluid rounded border border-muted collapse" id="{{ @prod->getID() }}" aria-expanded="false">
+                                    <h4>Description</h4>
+                                    <p>
+                                        {{ @prod->getDescription() }}
+                                    </p>
+                                    <h4>Specs</h4>
+                                    <p>
+                                        Tdp: {{ @prod->getTdp() }} <br>
+                                        Brand: {{ @prod->getChipBrand() }} <br>
+                                        Manufacturer: {{ @prod->getManufacturer() }} <br>
+                                        Max/Stock Frequency (mhz): {{ @prod->getFreqMhz() }} <br>
+                                        Video Memory: {{ @prod->getVmemMb() }} <br>
+                                    </p>
+                                </div>
+                            </div>
 
+
+                        </div>
+                        <div class="col-md-2 text-right">
+                            <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @prod->getPrice() }}</h2>
+                        </div>
                     </div>
-                    <div class="col-md-2 text-right">
-                        <h2 style="display: inline">$</h2><h2 style="display: inline">{{ @row['price'] }}</h2>
-                        <!--Price-->
-                        <div class="row-fluid"><a class="btn btn-gold" href="#">-</a><a class="rounded border border-secondary quanity-label">2</a><a class="btn btn-gold" href="#">+</a></div>
-                    </div>
-                </div>
-            </repeat>
+                </repeat>
+            </div>
         </div>
         <br>
     </div>
