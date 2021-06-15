@@ -154,7 +154,7 @@ input[type=submit] {
 .valid:before {
     position: relative;
     left: -35px;
-    content: "&#10003;";
+    content: "&#10003";
 }
 
 /* Add a red text color and an "x" icon when the requirements are wrong */

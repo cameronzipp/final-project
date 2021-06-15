@@ -65,6 +65,12 @@ class Controller
         echo $view->render('views/cart.html');
     }
 
+    function register() {
+        //Display the cart page
+        $view = new Template();
+        echo $view->render('views/register.html');
+    }
+
     function error($f3) {
         if ($f3->get("DEBUG") > 0){
             echo $f3->get('ERROR.text');

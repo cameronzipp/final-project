@@ -33,6 +33,8 @@ $f3->route('GET /cart', 'Controller->cart');
 
 $f3->redirect('GET|HEAD /home', '/');
 
+$f3->route('GET /register', 'Controller->register');
+
 $f3->route('GET|HEAD /logout', FUNCTION(){
     session_destroy(); //this could cause an issue with the session if the session doesnt actually recreate when redirected
     header("Location:home");
