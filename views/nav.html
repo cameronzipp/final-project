@@ -12,17 +12,20 @@
                     </repeat>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item float-right">
-                    <a class="nav-link" href="orders">Orders</a>
-                </li>
-                <li class="nav-item float-right">
-                    <a class="nav-link" href="cart">Cart</a>
-                </li>
-                <li class="nav-item float-right">
-                    <a class="nav-link" href="logout">Logout ( {{ @user->getUsername() }} )</a>
-                </li>
-            </ul>
+            <check if="{{ isset($_SESSION['userId']) }}">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item float-right">
+                        <a class="nav-link" href="orders">Orders</a>
+                    </li>
+                    <li class="nav-item float-right">
+                        <a class="nav-link" href="cart">Cart</a>
+                    </li>
+                    <li class="nav-item float-right">
+                        <a class="nav-link" href="logout">Logout ( {{ @user->getUsername() }} )</a>
+                    </li>
+                </ul>
+            </check>
+
         </div>
     </nav>
 </nav>

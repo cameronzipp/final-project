@@ -1,19 +1,22 @@
 // document.getElementById("psw").onfocus = register;
 
-let passw = document.getElementById("psw");
+let passw = document.getElementById("pass");
 let letter = document.getElementById("letter");
 let capital = document.getElementById("capital");
 let number = document.getElementById("number");
 let length = document.getElementById("length");
+let passBox = document.getElementById("message");
 
 // When the user clicks on the password field, show the message box
 passw.onfocus = function() {
-    document.getElementById("message").style.display = "block";
+    passBox.style.display = "block";
 }
 
-// When the user clicks outside of the password field, hide the message box
+// When the user clicks outside of the password field, hide the message box unless it has stuff in it
 passw.onblur = function() {
-    document.getElementById("message").style.display = "none";
+    if (passw.value.length <= 0) {
+        passBox.style.display = "none";
+    }
 }
 
 // When the user starts to type something inside the password field
