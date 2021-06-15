@@ -37,6 +37,7 @@ Hunter - Co-Founder/Developer
 ✔️ 4. Data can be viewed and added.
 
 - Database layer uses PDO and prepared statements to add, retrieve, and delete from the database.
+-- This happens with the sign-in, register, and store pages.
 
 ✔️ 5. Has a history of commits from both team members to a Git repository. Commits are clearly commented.
 
