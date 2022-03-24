@@ -112,7 +112,7 @@ class Controller
             $username = $_POST['uname'];
             $password = hash("sha256", $_POST['pass']);
 
-            require("model/validation.php");
+            require("model/validator.php");
 
             if (validPass($_POST['pass']) && validUser($username)){
                 $loginInfo = $GLOBALS['pdo']->prepare('INSERT INTO User (username, pass) VALUES (?, ?)');
